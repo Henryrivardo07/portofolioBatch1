@@ -1,0 +1,14 @@
+.button {
+  height: rem-calc(40);
+  background: linear-gradient(to right, #dc49a6, #8746eb);
+  padding: rem-calc(11);
+  gap: get-spacing('spacing-sm');
+  border-radius: get-radius('radius-full');
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include md {
+    height: rem-calc(48);
+    padding: 0 rem-calc(47);
+  }
+}
