@@ -1,0 +1,102 @@
+.timeline {
+  width: rem-calc(20);
+
+  position: relative;
+  @include md {
+    width: rem-calc(24);
+  }
+  .line {
+    background: linear-gradient(to right, #e96cf3, #8746eb);
+    width: rem-calc(4);
+    height: calc(rem-calc(26) + 100%);
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    position: absolute;
+
+    @include md {
+      width: rem-calc(6);
+      height: calc(rem-calc(36) + 100%);
+    }
+  }
+
+  .circle {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border: rem-calc(5) solid get-color('primary', 100);
+    border-radius: 50%;
+    background: linear-gradient(to right, #e96cf3, #8746eb);
+    position: absolute;
+    top: 0;
+    @include md {
+      border: rem-calc(6) solid get-color('primary', 100);
+    }
+  }
+}
+.content {
+  background-color: get-color('neutral', 500);
+  padding: rem-calc(12);
+  border-radius: rem-calc(24);
+
+  @include md {
+    padding: rem-calc(24);
+    border-radius: rem-calc(24);
+  }
+
+  .title {
+    @include typography('text-md', 'bold');
+    color: get-color('neutral', 100);
+    @include md {
+      @include typography('display-xs', 'bold');
+    }
+  }
+
+  .detail {
+    margin-top: rem-calc(12);
+    display: flex;
+    color: get-color('neutral', 100);
+    flex-direction: column;
+    gap: rem-calc(12);
+
+    @include md {
+      margin-top: rem-calc(20);
+      flex-direction: row;
+      align-items: center;
+    }
+    .dot {
+      width: rem-calc(4);
+      height: rem-calc(4);
+      border-radius: 50%;
+      align-items: center;
+
+      background-color: get-color('neutral', 100);
+      display: none;
+      @include md {
+        display: block;
+      }
+    }
+    .detailItem {
+      display: flex;
+      @include typography('text-sm', 'regular');
+      gap: rem-calc(6);
+      align-items: center;
+      @include md {
+        @include typography('text-md', 'regular');
+      }
+
+      p {
+        color: #fff !important;
+      }
+    }
+  }
+  .description {
+    display: flex;
+    flex-direction: column;
+    margin-top: rem-calc(12);
+    gap: rem-calc(12);
+    @include md {
+      gap: rem-calc(20);
+      margin-top: rem-calc(20);
+    }
+  }
+}

@@ -1,4 +1,6 @@
 .hero {
+  // terakhir aja finish
+  // fokus navbar baru hero
   position: relative;
   display: flex;
   flex-direction: column;
@@ -12,6 +14,7 @@
     padding: rem-calc(222) rem-calc(229);
     padding-bottom: rem-calc(420);
   }
+
   &::before {
     content: '';
     background-image: url('../../assets/hero-grid-decoration.png');
@@ -37,15 +40,16 @@
     background-size: 35%;
     z-index: -2;
   }
+
   .wavesWrapper {
     position: absolute;
     width: 100%;
     height: rem-calc(300);
-    // background: red;
     bottom: rem-calc(84);
     z-index: -1;
     opacity: 0.8;
   }
+
   .wavesBackground {
     height: 100%;
     background-image: url('../../assets/waves-background.png');
@@ -112,6 +116,7 @@
           @include md {
             @include typography('display-3xl', 'extrabold');
           }
+
           .box {
             display: inline-block;
             padding: 0.25rem 0.5rem;

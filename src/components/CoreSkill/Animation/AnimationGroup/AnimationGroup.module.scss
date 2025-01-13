@@ -1,0 +1,158 @@
+.animationGroup {
+  min-width: rem-calc(390);
+
+  @include md {
+    min-width: rem-calc(660);
+  }
+
+  .elipsContainer {
+    position: relative;
+    border: 1px solid get-color('neutral', 400);
+    border-radius: 50%;
+    margin: auto;
+
+    &.circleOuterContainer {
+      width: rem-calc(280.75);
+      height: rem-calc(280.75);
+      padding: rem-calc(20);
+
+      @include md {
+        width: rem-calc(515);
+        height: rem-calc(515);
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: rem-calc(25);
+        left: 50%;
+        transform: translateX(-50%);
+        width: rem-calc(8.72);
+        height: rem-calc(8.72);
+        border-radius: 50%;
+        background-color: get-color('neutral', 400);
+
+        @include md {
+          width: rem-calc(16);
+          height: rem-calc(16);
+          top: rem-calc(55);
+        }
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: rem-calc(32);
+        left: 62%;
+        transform: translateX(-50%);
+        width: rem-calc(8.72);
+        height: rem-calc(8.72);
+        border-radius: 50%;
+        background-color: get-color('neutral', 400);
+
+        @include md {
+          width: rem-calc(16);
+          height: rem-calc(16);
+          bottom: rem-calc(0);
+        }
+      }
+    }
+
+    &.middleContainer {
+      width: rem-calc(220);
+      height: rem-calc(220);
+      margin: auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      @include md {
+        width: rem-calc(385);
+        height: rem-calc(385);
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 5%;
+        left: 0%;
+        width: rem-calc(8.72);
+        height: rem-calc(8.72);
+        border-radius: 50%;
+        background-color: get-color('neutral', 400);
+
+        @include md {
+          width: rem-calc(16);
+          height: rem-calc(16);
+          top: rem-calc(100);
+          left: rem-calc(-60);
+        }
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 36%;
+        right: 0;
+        width: rem-calc(8.72);
+        height: rem-calc(8.72);
+        border-radius: 50%;
+        background-color: get-color('neutral', 400);
+
+        @include md {
+          width: rem-calc(16);
+          height: rem-calc(16);
+        }
+      }
+    }
+
+    &.innerContainer {
+      width: rem-calc(140);
+      height: rem-calc(140);
+      margin: auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      @include md {
+        width: rem-calc(266);
+        height: rem-calc(266);
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateX(-50%) translateY(-50%);
+        width: rem-calc(8.72);
+        height: rem-calc(8.72);
+        border-radius: 50%;
+        background-color: get-color('neutral', 400);
+
+        @include md {
+          width: rem-calc(16);
+          height: rem-calc(16);
+        }
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 10%;
+        right: 0;
+        width: rem-calc(8.72);
+        height: rem-calc(8.72);
+        border-radius: 50%;
+        background-color: get-color('neutral', 400);
+
+        @include md {
+          width: rem-calc(16);
+          height: rem-calc(16);
+        }
+      }
+    }
+  }
+}

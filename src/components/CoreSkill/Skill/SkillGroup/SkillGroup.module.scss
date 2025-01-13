@@ -1,0 +1,7 @@
+.skillGroup {
+  flex: 1 0 rem-calc(320);
+
+  @include md {
+    flex: 1 0 rem-calc(335);
+  }
+}

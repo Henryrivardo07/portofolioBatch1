@@ -1,0 +1,32 @@
+@import '../../scss/mixins/_typography.scss';
+
+.carrerCard {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: get-radius('radius-4xl');
+  background-color: get-color('neutral', 500);
+  margin-bottom: 1rem;
+}
+
+.carrerCard__position {
+  @include typography('text-md', 'bold');
+  color: get-color('neutral', 100);
+}
+
+.carrerCard__company {
+  @include typography('text-sm', 'regular');
+  color: get-color('neutral', 100);
+  margin-top: 0.5rem;
+}
+
+.carrerCard__rangeDate {
+  @include typography('text-sm', 'regular');
+  color: get-color('neutral', 100);
+  margin-top: 0.3rem;
+}
+
+.carrerCard__description {
+  @include typography('text-sm', 'regular');
+  color: get-color('neutral', 200);
+  margin-top: 1rem;
+}

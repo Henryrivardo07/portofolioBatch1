@@ -1,0 +1,134 @@
+.skillContainer {
+  position: absolute;
+  width: rem-calc(88);
+  height: rem-calc(44);
+  padding: get-spacing('spacing-sm');
+  background-color: #0f0f0f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: rem-calc(8);
+  overflow: hidden;
+  z-index: 1;
+
+  .htmlIcon {
+    width: rem-calc(25);
+    height: rem-calc(29);
+  }
+
+  .cssIcon {
+    width: rem-calc(25);
+    height: rem-calc(29);
+  }
+
+  .jsIcon {
+    width: rem-calc(28);
+    height: rem-calc(28);
+  }
+
+  .reactIcon {
+    width: rem-calc(28);
+    height: rem-calc(28);
+  }
+
+  .tsIcon {
+    width: rem-calc(28);
+    height: rem-calc(28);
+  }
+
+  .reduxIcon {
+    width: rem-calc(31);
+    height: rem-calc(28);
+  }
+
+  @include md {
+    width: rem-calc(162);
+    height: rem-calc(80);
+    padding: get-spacing('spacing-lg');
+    gap: get-spacing('spacing-lg');
+
+    .htmlIcon {
+      width: rem-calc(46);
+      height: rem-calc(52);
+    }
+
+    .cssIcon {
+      width: rem-calc(46);
+      height: rem-calc(52);
+    }
+
+    .jsIcon {
+      width: rem-calc(52);
+      height: rem-calc(52);
+    }
+
+    .reactIcon {
+      width: rem-calc(52);
+      height: rem-calc(52);
+    }
+
+    .tsIcon {
+      width: rem-calc(52);
+      height: rem-calc(52);
+    }
+
+    .reduxIcon {
+      width: rem-calc(57.28);
+      height: rem-calc(52);
+    }
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: rem-calc(8);
+    padding: 1px;
+    background: linear-gradient(to right, #8746eb, #dc49a6);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    z-index: 1;
+  }
+
+  & > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  &.htmlLogoContainer {
+    top: 2%;
+    left: 10%;
+  }
+
+  &.cssLogoContainer {
+    top: 5%;
+    right: 0;
+  }
+
+  &.reduxLogoContainer {
+    top: 32%;
+    right: 22%;
+  }
+
+  &.jsLogoContainer {
+    top: 50%;
+    left: -11%;
+    transform: translateY(-50%);
+  }
+
+  &.tsLogoContainer {
+    bottom: 20%;
+    right: 9%;
+  }
+
+  &.reactLogoContainer {
+    bottom: 11%;
+    left: 10%;
+  }
+}

@@ -1,0 +1,66 @@
+@import '../../scss/mixins/typography';
+@import '../../scss/mixins/breakpoints';
+@import '../../scss/variables/_gradients';
+
+.about {
+  position: relative;
+  overflow: hidden;
+
+  @include md {
+    // margin-top: rem-calc(-140);
+    margin-top: rem-calc(-300);
+  }
+}
+
+.videoContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  border-radius: rem-calc(24);
+  overflow: hidden;
+
+  @include md {
+    max-height: rem-calc(459);
+  }
+
+  .videoOverlay {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    background: linear-gradient(to right, #e96cf3, #8746eb);
+
+    .thumbnail {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .playButton {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: rem-calc(24);
+      height: rem-calc(24);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @include md {
+        width: rem-calc(71);
+        height: rem-calc(71);
+      }
+    }
+  }
+
+  .videoIframe {
+    width: 100%;
+    height: 100%;
+    padding: rem-calc(16);
+    border-radius: rem-calc(48);
+    background-color: hsla(0, 0%, 100%, 0.05);
+  }
+}

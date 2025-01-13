@@ -1,0 +1,9 @@
+.CoreSkill {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: get-spacing('spacing-3xl');
+  margin-top: get-spacing('spacing-6xl');
+}

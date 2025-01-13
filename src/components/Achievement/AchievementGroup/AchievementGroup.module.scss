@@ -1,0 +1,9 @@
+.achievementGroup {
+  display: flex;
+  gap: rem-calc(12);
+  flex: 1 0 rem-calc(308);
+
+  @include md {
+    gap: rem-calc(20);
+  }
+}

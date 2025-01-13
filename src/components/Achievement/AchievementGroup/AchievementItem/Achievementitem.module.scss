@@ -1,0 +1,50 @@
+.achievementItem {
+  flex: 1;
+  aspect-ratio: 1 / 1;
+  border: 1px solid transparent; // Border default
+
+  justify-content: center;
+  align-items: center;
+
+  display: flex;
+  flex-direction: column;
+  gap: get-spacing('spacing-sm');
+  border-radius: get-radius('radius-full');
+  color: get-color('neutral', 100);
+  border: 1px solid transparent; // Border default
+
+  @include md {
+    gap: get-spacing('spacing-md');
+  }
+
+  &.primary {
+    background-image: linear-gradient(to right, #e96cf3, #8746eb),
+      linear-gradient(to right, #e96cf3, #8746eb); // Gradien untuk border luar
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+  }
+
+  &.secondary {
+    $color: get-color('neutral', 500);
+    background-image: linear-gradient(to right, $color, $color),
+      linear-gradient(to right, #e96cf3, #8746eb); // Gradien untuk border luar
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+  }
+
+  .metrix {
+    @include typography('display-sm', 'extrabold');
+
+    @include md {
+      @include typography('display-2xl', 'extrabold');
+    }
+  }
+
+  .detail {
+    @include typography('text-sm', 'regular');
+
+    @include md {
+      @include typography('text-md', 'regular');
+    }
+  }
+}
