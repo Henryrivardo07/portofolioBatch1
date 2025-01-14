@@ -1,0 +1,27 @@
+// TestimoniList.module.scss
+.testimoniList {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 0 10px;
+  overflow: hidden; // Supaya card yang bergerak tidak keluar dari container
+  position: relative;
+
+  width: 100%;
+}
+
+.testimoniListCard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  margin: 0 10px;
+}
+.testimoniListInner {
+  display: flex; // Stack cards horizontally
+  flex-wrap: nowrap; // Prevent wrapping
+}
+
+.testimoniListInner > div {
+  margin-right: 30px; // Add some spacing between the testimonial cards
+}

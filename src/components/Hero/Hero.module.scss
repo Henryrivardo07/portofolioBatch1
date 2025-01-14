@@ -1,6 +1,121 @@
+@import '../../scss/functions/get-color';
+@import '../../scss/functions/rem-calc';
+@import '../../scss/mixins/typography';
+@import '../../scss/mixins/shadows';
+@import '../../scss/variables/_colors';
+@import '../../scss/variables/_fonts';
+@import '../../scss/mixins/breakpoints';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: get-spacing('spacing-2xl');
+
+  &::before {
+    content: '';
+    background-image: url('../../assets/header-ellipse-decoration.svg');
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: rem-calc(1190);
+    height: rem-calc(1624);
+    transform: translateX(46%);
+    top: rem-calc(-125);
+  }
+}
+.highlight {
+  .box {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    margin: 0.25rem 0;
+    @include typography('display-xl', 'bold');
+    color: get-color('neutral', 100); // Warna teks tetap terlihat
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+    z-index: 1; // Pastikan teks berada di atas elemen lainnya
+
+    // Border gradien tanpa latar belakang
+    border: 2px solid transparent; // Border default
+    border-image: linear-gradient(to right, #e96cf3, #8746eb) 1; // Border gradien
+
+    background-origin: border-box;
+    background-clip: border-box; // Gradien hanya pada border
+    background-color: transparent; // Latar belakang tetap transparan
+
+    // Kotak kecil di pojok kiri atas
+    &::before, // Kotak kiri atas
+    &::after, // Kotak kanan bawah
+    .corner-top-left, // Kotak kanan atas
+    .corner-bottom-left, // Kotak kiri bawah
+    .corner-top-right, // Kotak kanan atas
+    .corner-bottom-right {
+      // Kotak kanan bawah
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: white; // Warna kotak kecil
+      border-radius: 4px; // Agar kotaknya melengkung
+      z-index: -1; // Kotak kecil berada di belakang teks
+    }
+
+    // Kotak kiri atas
+    &::before {
+      top: -5px;
+      left: -5px;
+    }
+
+    // Kotak kanan bawah
+    &::after {
+      bottom: -5px;
+      right: -5px;
+    }
+
+    .cornerTopRight,
+    .cornerBottomLeft {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: white;
+      border-radius: 4px;
+    }
+
+    // Pojok kanan atas
+    .cornerTopRight {
+      top: -5px;
+      right: -5px;
+    }
+
+    // Pojok kiri bawah
+    .cornerBottomLeft {
+      bottom: -5px;
+      left: -5px;
+    }
+
+    &:not(:last-child) {
+      margin-right: 0.5rem;
+    }
+  }
+
+  .boxText {
+    z-index: 99999; // Pastikan teks berada di atas semua elemen lainnya
+    background: linear-gradient(to right, #e96cf3, #8746eb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+
+    @include md {
+      @include typography('display-3xl', 'bold');
+    }
+  }
+}
+
 .hero {
-  // terakhir aja finish
-  // fokus navbar baru hero
   position: relative;
   display: flex;
   flex-direction: column;
@@ -41,10 +156,80 @@
     z-index: -2;
   }
 
+  .overflowWrapper {
+    overflow: hidden;
+  }
+
+  .ctaButton {
+    @include typography('text-sm', 'medium');
+    color: get-color('neutral', 100);
+    width: 100%;
+    @include md {
+      @include typography('text-md', 'medium');
+      width: fit-content;
+    }
+  }
+  // Text styling
+  .title {
+    @include typography('display-xl', 'bold');
+    color: get-color('neutral', 100);
+    z-index: 2;
+
+    .highlight {
+      background: linear-gradient(to right, #e96cf3, #8746eb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+      @include md {
+        @include typography('display-3xl', 'extrabold');
+      }
+    }
+    @include md {
+      @include typography('display-3xl', 'extrabold');
+    }
+  }
+
+  .description {
+    @include typography('text-sm', 'regular');
+    color: get-color('neutral', 200);
+    z-index: 2;
+    @include md {
+      @include typography('text-md', 'regular');
+    }
+  }
+
+  .label {
+    display: flex;
+    padding: rem-calc(8) rem-calc(16);
+    border-radius: get-radius('radius-full');
+    background: get-color('neutral', 500);
+    color: get-color('neutral', 100);
+    @include typography('text-xs', 'medium');
+    border: 1px solid transparent; // Border default
+    background-image: linear-gradient(black, black),
+      linear-gradient(to right, #e96cf3, #8746eb); // Gradien untuk border luar
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    // buatkan shadow
+    box-shadow: 0 4px 24px rgba(135, 70, 235, 0.32); // Corrected shadow syntax
+
+    @include md {
+      padding: rem-calc(8) rem-calc(24);
+      @include typography('text-md', 'medium');
+    }
+  }
+
+  .experience {
+    color: get-color('neutral', 100);
+    @include typography('text-sm', 'bold');
+  }
+
   .wavesWrapper {
     position: absolute;
     width: 100%;
     height: rem-calc(300);
+    // background: red;
     bottom: rem-calc(84);
     z-index: -1;
     opacity: 0.8;
@@ -57,179 +242,5 @@
     background-size: 16%;
     opacity: 0.8;
     background-position: bottom center;
-  }
-
-  .overflowWrapper {
-    overflow: hidden;
-
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: get-spacing('spacing-2xl');
-
-      &::before {
-        content: '';
-        background-image: url('../../assets/header-ellipse-decoration.svg');
-        position: absolute;
-        background-repeat: no-repeat;
-        background-size: contain;
-        width: rem-calc(1190);
-        height: rem-calc(1624);
-        transform: translateX(46%);
-        top: rem-calc(-125);
-      }
-
-      .label {
-        display: flex;
-        padding: rem-calc(8) rem-calc(16);
-        border-radius: get-radius('radius-full');
-        background: get-color('neutral', 500);
-        color: get-color('neutral', 100);
-        @include typography('text-xs', 'medium');
-        border: 1px solid transparent; // Border default
-        background-image: linear-gradient(black, black),
-          linear-gradient(to right, #e96cf3, #8746eb); // Gradien untuk border luar
-        background-origin: border-box;
-        background-clip: padding-box, border-box;
-        // buatkan shadow
-        box-shadow: 0 4px 24px rgba(135, 70, 235, 0.32); // Corrected shadow syntax
-
-        @include md {
-          padding: rem-calc(8) rem-calc(24);
-          @include typography('text-md', 'medium');
-        }
-      }
-
-      .title {
-        @include typography('display-xl', 'bold');
-        color: get-color('neutral', 100);
-        z-index: 2;
-
-        .highlight {
-          background: linear-gradient(to right, #e96cf3, #8746eb);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          text-fill-color: transparent;
-          @include md {
-            @include typography('display-3xl', 'extrabold');
-          }
-
-          .box {
-            display: inline-block;
-            padding: 0.25rem 0.5rem;
-            margin: 0.25rem 0;
-            @include typography('display-xl', 'bold');
-            color: get-color('neutral', 100); // Warna teks tetap terlihat
-            border-radius: 8px;
-            text-align: center;
-            position: relative;
-            z-index: 1; // Pastikan teks berada di atas elemen lainnya
-
-            // Border gradien tanpa latar belakang
-            border: 2px solid transparent; // Border default
-            border-image: linear-gradient(to right, #e96cf3, #8746eb) 1; // Border gradien
-
-            background-origin: border-box;
-            background-clip: border-box; // Gradien hanya pada border
-            background-color: transparent; // Latar belakang tetap transparan
-
-            // Kotak kecil di pojok kiri atas
-            &::before, // Kotak kiri atas
-            &::after, // Kotak kanan bawah
-            .corner-top-left, // Kotak kanan atas
-            .corner-bottom-left, // Kotak kiri bawah
-            .corner-top-right, // Kotak kanan atas
-            .corner-bottom-right {
-              // Kotak kanan bawah
-              content: '';
-              position: absolute;
-              width: 10px;
-              height: 10px;
-              background-color: white; // Warna kotak kecil
-              border-radius: 4px; // Agar kotaknya melengkung
-              z-index: -1; // Kotak kecil berada di belakang teks
-            }
-
-            // Kotak kiri atas
-            &::before {
-              top: -5px;
-              left: -5px;
-            }
-
-            // Kotak kanan bawah
-            &::after {
-              bottom: -5px;
-              right: -5px;
-            }
-
-            .cornerTopRight,
-            .cornerBottomLeft {
-              content: '';
-              position: absolute;
-              width: 10px;
-              height: 10px;
-              background-color: white;
-              border-radius: 4px;
-            }
-
-            // Pojok kanan atas
-            .cornerTopRight {
-              top: -5px;
-              right: -5px;
-            }
-
-            // Pojok kiri bawah
-            .cornerBottomLeft {
-              bottom: -5px;
-              left: -5px;
-            }
-
-            &:not(:last-child) {
-              margin-right: 0.5rem;
-            }
-
-            .boxText {
-              z-index: 99999; // Pastikan teks berada di atas semua elemen lainnya
-              background: linear-gradient(to right, #e96cf3, #8746eb);
-              -webkit-background-clip: text;
-              -webkit-text-fill-color: transparent;
-              background-clip: text;
-              text-fill-color: transparent;
-
-              @include md {
-                @include typography('display-3xl', 'bold');
-              }
-            }
-          }
-        }
-        @include md {
-          @include typography('display-3xl', 'extrabold');
-        }
-      }
-      .description {
-        @include typography('text-sm', 'regular');
-        color: get-color('neutral', 200);
-        z-index: 2;
-        @include md {
-          @include typography('text-md', 'regular');
-        }
-        .experience {
-          color: get-color('neutral', 100);
-          @include typography('text-sm', 'bold');
-        }
-      }
-      .ctaButton {
-        @include typography('text-sm', 'medium');
-        color: get-color('neutral', 100);
-        width: 100%;
-        @include md {
-          @include typography('text-md', 'medium');
-          width: fit-content;
-        }
-      }
-    }
   }
 }

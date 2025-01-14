@@ -1,0 +1,91 @@
+@import '../../../scss/mixins/typography';
+@import '../../../scss/mixins/breakpoints';
+
+.testimoniWrapper {
+  // display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+.circle {
+  border-radius: 50%;
+  width: 300px; /* Lebar lingkaran */
+  height: 300px; /* Tinggi lingkaran */
+  background-color: rgba(129, 68, 223, 0.6); /* Warna dengan transparansi */
+  filter: blur(100px); /* Efek blur */
+  position: absolute; /* Agar bisa diatur posisi */
+  z-index: -1; /* Di belakang konten */
+  top: 0;
+  right: 0;
+}
+.title {
+  @include typography('display-sm', 'extrabold');
+  color: get-color('neutral', 100);
+
+  @include md {
+    @include typography('display-2xl', 'extrabold');
+  }
+}
+
+.description {
+  @include typography('text-sm', 'regular');
+  color: get-color('neutral', 200);
+
+  @include md {
+    @include typography('text-md', 'regular');
+  }
+}
+
+.testimoniList {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 0 10px;
+}
+
+.testimoni {
+  padding: get-spacing('spacing-5xl') 0;
+  gap: get-spacing('spacing-4xl');
+
+  @include md {
+    padding: get-spacing('spacing-8xl') 0;
+    gap: get-spacing('spacing-6xl');
+  }
+}
+
+.testimoniHeader {
+  text-align: center;
+  //   width: 320px;
+}
+
+.titleHeader {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: rem-calc(320);
+  margin: 0 auto;
+
+  @include md {
+    width: rem-calc(739);
+    gap: get-spacing('spacing-lg');
+  }
+}
+
+.testimoniCardContainer {
+  display: flex;
+  justify-content: center;
+  margin-right: 2rem; /* Jarak antar kartu testimonial */
+  margin-top: 20px;
+  transition: background-image 0.3s ease-in-out, border-color 0.3s ease-in-out;
+
+  :hover {
+    background-clip: padding-box, border-box;
+    background-image: linear-gradient(black, black),
+      linear-gradient(to right, #e96cf3, #8746eb); // Gradien untuk border luar
+    background-origin: border-box;
+
+    animation-play-state: paused;
+  }
+}

@@ -1,0 +1,12 @@
+.waves {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: rem-calc(106); // Tinggi bayangan
+  pointer-events: none;
+  z-index: 0; // Tetap di bawah konten utama
+  background-image: url('../../../assets/waves-decorations.png');
+  background-repeat: repeat-x;
+  background-size: rem-calc(240) rem-calc(106);
+}

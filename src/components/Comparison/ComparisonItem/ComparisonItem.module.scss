@@ -1,0 +1,37 @@
+.featureName {
+  @include typography('text-sm', 'semibold');
+  color: get-color('neutral', 100);
+  text-align: center;
+  padding: rem-calc(24) rem-calc(8) rem-calc(24) rem-calc(10);
+
+  @include md {
+    @include typography('text-md', 'semibold');
+    padding: rem-calc(21) rem-calc(12);
+  }
+}
+
+.ourState,
+.competitorState {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+
+  > * {
+    width: rem-calc(20);
+    height: rem-calc(20);
+
+    @include md {
+      width: rem-calc(24);
+      height: rem-calc(24);
+    }
+  }
+}
+.featureName,
+.ourState,
+.competitorState {
+  border-top: 1px solid get-color('neutral', 400);
+  &:first-child {
+    border-top: none;
+  }
+}

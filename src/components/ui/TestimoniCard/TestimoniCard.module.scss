@@ -1,0 +1,50 @@
+@import '@/scss/variables/colors.scss';
+@import '../../scss/mixins/_typography.scss';
+@import '../../scss/mixins/breakpoints.scss';
+
+.img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+.name {
+  @include typography('text-md', 'bold');
+  color: get-color('neutral', 100);
+}
+
+.position {
+  @include typography('text-sm', 'regular');
+  color: get-color('neutral', 200);
+}
+
+.testimoni {
+  color: get-color('neutral', 200);
+  @include typography('text-sm', 'regular');
+
+  @include md {
+    @include typography('text-md', 'regular');
+  }
+}
+
+.testimoniCard {
+  display: flex;
+  flex-direction: column;
+  gap: get-spacing('spacing-xl');
+  border-radius: 10px;
+  padding: get-spacing('spacing-xl');
+  width: 302px;
+  border: 2px solid transparent; // Border default
+  background-color: get-color('neutral', 500);
+
+  @include md {
+    gap: get-spacing('spacing-2xl');
+    padding: get-spacing('spacing-2xl');
+    width: rem-calc(500);
+  }
+}
+
+.testimoniCardHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

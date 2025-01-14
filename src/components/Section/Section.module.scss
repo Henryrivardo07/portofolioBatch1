@@ -1,0 +1,30 @@
+.section {
+  padding: rem-calc(80) 0;
+
+  .sectionHeader {
+    text-align: center;
+    margin-bottom: rem-calc(32);
+
+    @include md {
+      margin-bottom: rem-calc(48);
+    }
+
+    .title {
+      @include typography('display-sm', 'extrabold');
+      color: get-color('neutral', 100);
+
+      @include md {
+        @include typography('display-2xl', 'extrabold');
+      }
+    }
+    .subtitle {
+      @include typography('text-sm', 'regular');
+      color: get-color('neutral', 200);
+      margin-top: rem-calc(12);
+
+      @include md {
+        @include typography('text-md', 'regular');
+      }
+    }
+  }
+}

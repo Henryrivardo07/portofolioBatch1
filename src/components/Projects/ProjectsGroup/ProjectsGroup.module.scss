@@ -1,0 +1,9 @@
+.projectGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: get-spacing('spacing-4xl');
+
+  @include md {
+    gap: get-spacing('spacing-6xl') get-spacing('spacing-3xl');
+  }
+}

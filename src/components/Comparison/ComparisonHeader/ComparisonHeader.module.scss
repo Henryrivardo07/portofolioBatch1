@@ -1,0 +1,14 @@
+.col1,
+.col2,
+.col3 {
+  padding: rem-calc(12) 0;
+  text-align: center;
+  align-items: center;
+  color: get-color('neutral', 100);
+  @include typography('text-sm', 'semibold');
+  z-index: 2;
+  position: relative;
+  @include md {
+    @include typography('text-md', 'bold');
+  }
+}

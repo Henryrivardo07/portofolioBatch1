@@ -1,0 +1,19 @@
+.contactForm {
+  .submitButton {
+    color: get-color('neutral', 100);
+    background: linear-gradient(to right, #e96cf3, #8746eb);
+    border-radius: get-radius('radius-full');
+    @include typography('text-md', 'medium');
+    height: rem-calc(48);
+  }
+
+  background-color: rgba($white, 0.05);
+  border-radius: rem-calc(20);
+
+  padding: rem-calc(16);
+
+  @include md {
+    border-radius: rem-calc(24);
+    padding: rem-calc(24);
+  }
+}

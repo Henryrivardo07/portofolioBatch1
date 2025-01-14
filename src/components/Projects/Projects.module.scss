@@ -1,0 +1,38 @@
+.projectSectionWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.headerProjects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: rem-calc(12);
+  margin: rem-calc(40) 0;
+
+  @include md {
+    margin: rem-calc(80) 0;
+  }
+
+  .title {
+    flex: 1 0 rem-calc(320);
+    max-width: rem-calc(620);
+    @include typography('display-sm', 'extrabold');
+    color: get-color('neutral', 100);
+
+    @include md {
+      @include typography('display-2xl', 'extrabold');
+    }
+  }
+
+  .subtitle {
+    flex: 1 0 rem-calc(320);
+    max-width: rem-calc(513);
+    @include typography('text-sm', 'regular');
+    color: get-color('neutral', 200);
+
+    @include md {
+      @include typography('text-md', 'regular');
+    }
+  }
+}

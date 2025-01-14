@@ -1,3 +1,24 @@
 .homePage {
-  overflow: hidden;
+  overflow: hidden; // Cut all the overflow content such as decorations, etc
+
+  .projectHeader {
+    flex-direction: column;
+    gap: rem-calc(12);
+  }
+
+  @include md {
+    .projectHeader {
+      flex-direction: row;
+      gap: rem-calc(27);
+
+      h2 {
+        width: rem-calc(620);
+      }
+
+      p {
+        width: rem-calc(513);
+        text-align: end;
+      }
+    }
+  }
 }

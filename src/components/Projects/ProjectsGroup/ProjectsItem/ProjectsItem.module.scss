@@ -1,0 +1,81 @@
+@import '@/scss/variables/_gradients';
+
+.projectItem {
+  color: get-color('neutral', 100);
+  flex: 1 0 fit-content;
+
+  @include md {
+    flex: 1 rem-calc(333);
+  }
+
+  .image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .contentProject {
+    display: flex;
+    flex-direction: column;
+
+    .infoProject {
+      margin: get-spacing('spacing-lg') 0;
+
+      @include md {
+        .infoProject {
+          margin: get-spacing('spacing-xl') 0 get-spacing('spacing-5xl') 0;
+        }
+      }
+
+      .title {
+        @include typography('text-lg', 'bold');
+      }
+
+      .techStack {
+        display: flex;
+        gap: get-spacing('spacing-md');
+        margin: rem-calc(8) 0;
+
+        @include md {
+          .techStack {
+            margin: rem-calc(12) 0;
+          }
+        }
+      }
+
+      .descriptionProject {
+        @include typography('text-sm', 'regular');
+        color: get-color('neutral', 200);
+      }
+    }
+
+    .buttonProject {
+      button {
+        color: map-get($gradients, 'gradient-purple-pink');
+        background: linear-gradient(to right, #e96cf3, #8746eb);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        @include typography('text-md', 'bold');
+      }
+
+      @include md {
+        .buttonProject {
+          button {
+            @include typography('text-lg', 'bold');
+          }
+        }
+      }
+
+      #iconArrow {
+        width: rem-calc(10);
+        height: rem-calc(10);
+      }
+    }
+  }
+}

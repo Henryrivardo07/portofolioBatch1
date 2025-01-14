@@ -1,0 +1,27 @@
+.comparison {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(rem-calc(187), auto) repeat(
+      2,
+      minmax(auto, rem-calc(370))
+    );
+  grid-auto-rows: auto;
+  padding: rem-calc(24) rem-calc(10);
+
+  border-radius: rem-calc(20);
+  background: get-color('neutral', 500);
+
+  &::before {
+    content: '';
+    position: absolute;
+    grid-area: 1/1/2/-1;
+    background: linear-gradient(to right, #e96cf3, #8746eb);
+    border-radius: get-radius('radius-full');
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+  }
+  @include md {
+    padding: rem-calc(24);
+  }
+}

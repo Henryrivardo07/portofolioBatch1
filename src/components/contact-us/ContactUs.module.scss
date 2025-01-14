@@ -1,0 +1,83 @@
+.contactUsContainer {
+  position: relative;
+
+  // Dekorasi pertama
+  .decorationEllipse {
+    position: absolute;
+    background-image: url('@/assets/contact-ellipse-decoration.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: rem-calc(1440);
+    height: rem-calc(2162);
+    transform: translateX(63%);
+    opacity: 1;
+    z-index: -1;
+  }
+
+  // Dekorasi kedua
+  .decorationGrid {
+    position: absolute;
+    background-image: url('../../assets/contact-grid-decoration.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: rem-calc(751);
+    height: rem-calc(307);
+    transform: translateX(63%);
+    bottom: rem-calc(-40);
+    z-index: -2;
+  }
+
+  // Dekorasi ketiga
+  .decorationCircle {
+    position: absolute;
+    background-image: url('../../assets/hero-circle-decoration.png');
+    background-repeat: no-repeat;
+    background-size: 35%;
+    transform: translateX(90%);
+    bottom: rem-calc(-120);
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    z-index: -3;
+  }
+
+  .contactHeader {
+    flex: 1 0 rem-calc(256);
+    text-align: center;
+
+    .title {
+      @include typography('display-sm', 'extrabold');
+      color: get-color('neutral', 100);
+
+      @include md {
+        @include typography('display-2xl', 'extrabold');
+      }
+    }
+
+    .description {
+      @include typography('text-sm', 'regular');
+      color: get-color('neutral', 200);
+      margin-top: rem-calc(12);
+
+      @include md {
+        @include typography('text-md', 'regular');
+      }
+    }
+
+    @include md {
+      text-align: start;
+    }
+  }
+
+  @include md {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: rem-calc(140);
+  }
+}
+
+.contactForm {
+  flex: 1 0 rem-calc(256);
+}

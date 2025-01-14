@@ -1,0 +1,29 @@
+.inputGroup {
+  label {
+    @include typography('text-sm', 'medium');
+    color: get-color('neutral', 100);
+
+    @include md {
+      @include typography('text-md', 'medium');
+    }
+  }
+
+  input {
+    width: 100%;
+    height: rem-calc(48);
+    padding: rem-calc(12);
+    color: get-color('neutral', 600);
+    @include typography('text-sm', 'regular');
+    border-radius: rem-calc(16);
+    font-family: 'poppins', sans-serif;
+
+    background-color: get-color('neutral', 500);
+    &::placeholder {
+      color: get-color('neutral', 200);
+    }
+
+    @include md {
+      padding: rem-calc(9) rem-calc(16);
+    }
+  }
+}
